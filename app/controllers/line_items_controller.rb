@@ -28,8 +28,7 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     product = Product.find(params[:product_id])
-    #Rails.logger.debug { 'product = ' + product }
-    @line_item = @cart.line_items.build(product: product)
+    @line_item = @cart.add_product(product)
     #Rails.logger.debug { 'cart = '  + @cart.line_items.count }
     puts("product : #{product} + cart: #{@cart.line_items.count} ")
 
